@@ -1,0 +1,49 @@
+-- I. Show the first and last names of actors with the names Nick, Ed and Jennifer as their first names.
+select first_name, last_name from actor
+where first_name = 'Nick' or first_name = 'Ed' or first_name = 'Jennifer';
+
+-- II. Show only the last name of the actor whose first names are Ed, Nick and Jennifer.
+select last_name from actor
+where first_name = 'Nick' or first_name = 'Ed' or first_name = 'Jennifer';
+
+-- III. Show all details of address table.
+select * from address;
+
+-- IV. Show district and phone in descending order in the address table.
+select district, phone from address
+order by district desc, phone desc;
+
+-- V. Using movie_id from movie and inventory table, show movie_id, title from Movie table and inventory_id from Inventory table.
+select f.film_id, f.title, i.inventory_id
+from film f
+join inventory i on f.film_id = i.film_id;
+
+-- VI. Show the first 5 rows consisting of inventory table and rental table.
+select * from inventory i
+join rental r on r.inventory_id = i.inventory_id 
+limit 5;
+
+-- VII. Show the first 10 rows consisting of rental_id, rental_date, payment_id, sorted in descending order by amount, consisting of the Rental and Payment tables.
+select r.rental_id, r.rental_date, p.payment_id
+from rental r
+join payment p on p.rental_id = r.rental_id
+order by p.amount desc
+limit 10;
+
+-- VIII. Show other details of the rows where actor_id is empty in the Actor table.
+select * from actor
+where actor_id IS NULL;
+
+-- IX. Show other details of the rows in the Actor table where actor_id is not empty.
+select * from actor
+where actor_id IS NOT NULL;
+
+-- X. Find the number of non-empty rows in the movie table.
+select count(*) from film
+where film_id IS NOT NULL;
+
+-- XI. Show the total amount from the payment table as output header sum_amt.
+select sum(amount) as sum_amt from payment;
+
+-- XII. Show the maximum and minimum amount in the payment table.
+select max(amount) as maximum, min(amount) as minimum from payment;
