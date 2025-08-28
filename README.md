@@ -1,4 +1,4 @@
-# Database-Module-Week9
+# Database-Module-Week6
 
 ### Note: You need to make the following queries based on the data mentioned in the subject explanation, which you will supply to the course;
 * 1) Show the first and last names of actors whose first names are Nick, Ed, or Jennifer.
